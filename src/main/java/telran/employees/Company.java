@@ -9,7 +9,7 @@ import java.util.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-//SO far we don't consider optimization
+//we do consider optimization
 public class Company implements Iterable<Employee>{
 	private static final String FILE_NAME = "employees-data.txt";
 	private TreeSet<Employee> employees = new TreeSet<>();
