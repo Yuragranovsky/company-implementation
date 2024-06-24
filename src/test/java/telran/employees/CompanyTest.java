@@ -55,7 +55,7 @@ void setCompany() {
 	@Test
 	void testGetEmployee() {
 		System.out.println("test with error");
-		assertEquals(empl1, company.getEmployee(ID1));
+		assertEquals(empl1, company.getEmployee(ID2));
 		assertNull(company.getEmployee(ID4));
 	}
 
