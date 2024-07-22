@@ -69,19 +69,17 @@ public class CompanyProxy implements CompanyInterface {
 
 	@Override
 	public Manager[] getManagersWithMostFactor() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public void save() throws FileNotFoundException {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void restore() throws Exception {
-		// TODO Auto-generated method stub
 
 	}
 
