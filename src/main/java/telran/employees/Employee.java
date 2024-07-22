@@ -16,6 +16,12 @@ public class Employee implements Comparable<Employee>{
 		this.basicSalary = basicSalary;
 		this.department = department;
 	}
+	
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", basicSalary=" + basicSalary + ", department=" + department + "]";
+	}
+
 	public Employee(JSONObject jsonObj) {
 		id = jsonObj.getLong("id");
 		basicSalary = jsonObj.getInt("basicSalary");
@@ -23,10 +29,13 @@ public class Employee implements Comparable<Employee>{
 		
 	}
 	public void fillMap(Map<String, Object> map) {
-		
+		if (!map.containsKey("className")) {
+			map.put("className", getClass().getName());
+		}
 		map.put("id", id);
 		map.put("basicSalary", basicSalary);
 		map.put("department", department);
+		
 		
 	}
 	@Override

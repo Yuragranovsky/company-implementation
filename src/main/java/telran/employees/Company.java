@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 //we do consider optimization
-public class Company implements Iterable<Employee>{
+public class Company implements CompanyInterface{
 	private static final String FILE_NAME = "employees-data.txt";
 	private TreeSet<Employee> employees = new TreeSet<>();
 	public void addEmployee(Employee empl) {
@@ -103,8 +103,7 @@ public class Company implements Iterable<Employee>{
 		for(Employee empl: employees) {
 			Map<String, Object> map = new HashMap<>();
 			empl.fillMap(map);
-			map.put("className", empl.getClass().getName());
-			JSONObject jsonObj = new JSONObject(map);
+			
 			employeesAr.put(map);
 		}
 		
@@ -116,12 +115,7 @@ public class Company implements Iterable<Employee>{
 		BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
 		String line = reader.readLine();
 		JSONArray array = new JSONArray(line);
-//		while((line = reader.readLine()) != null) {
-//			JSONObject jsonObj = new JSONObject(line);
-//			Employee empl = (Employee) Class.forName(jsonObj.getString("className"))
-//			.getConstructor(JSONObject.class).newInstance(jsonObj);
-//			addEmployee(empl);
-//		}
+
 		for(int i = 0; i < array.length(); i++) {
 			JSONObject jsonObj = array.getJSONObject(i);
 			Employee empl = (Employee) Class.forName(jsonObj.getString("className"))

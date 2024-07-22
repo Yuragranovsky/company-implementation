@@ -17,6 +17,11 @@ public class WageEmployee extends Employee {
 		hours = jsonObj.getInt("hours");
 		wage = jsonObj.getInt("wage");
 	}
+	
+	@Override
+	public String toString() {
+		return "WageEmployee [hours=" + hours + ", wage=" + wage + ", toString()=" + super.toString() + "]";
+	}
 	public int getHours() {
 		return hours;
 	}
@@ -35,6 +40,9 @@ public class WageEmployee extends Employee {
 	}
 	@Override
 	public void fillMap(Map<String, Object> map) {
+		if (!map.containsKey("className")) {
+			map.put("className", getClass().getName());
+		}
 		super.fillMap(map);
 		map.put("wage", wage);
 		map.put("hours", hours);

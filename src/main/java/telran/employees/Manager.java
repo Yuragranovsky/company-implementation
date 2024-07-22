@@ -15,14 +15,23 @@ public class Manager extends Employee {
 		super(jsonObj);
 		this.factor = jsonObj.getFloat("factor");
 	}
+	
     @Override
+	public String toString() {
+		return "Manager [factor=" + factor + ", toString()=" + super.toString() + "]";
+	}
+	@Override
     public int computeSalary() {
     	return Math.round(super.computeSalary() * factor);
     }
     @Override
     public void fillMap(Map<String, Object> map) {
+		if (!map.containsKey("className")) {
+			map.put("className", getClass().getName());
+		}
     	super.fillMap(map);
     	map.put("factor",factor);
+		
     }
 	
 	

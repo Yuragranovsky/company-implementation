@@ -24,6 +24,9 @@ public class SalesPerson extends WageEmployee {
 	}
 	@Override
 	public void fillMap(Map<String, Object> map) {
+		if (!map.containsKey("className")) {
+			map.put("className", getClass().getName());
+		}
 		super.fillMap(map);
 		map.put("percent", percent);
 		map.put("sales", sales);
